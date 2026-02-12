@@ -2081,7 +2081,9 @@
                 };
 
                 // Call the real M-Pesa STK Push API
-                const response = await fetch('/api/initiate-stk-push', {
+                                const response = await fetch((window.location.hostname === 'localhost'
+                                    ? 'http://localhost:3002'
+                                    : 'https://mkopo-chapchap-iota.vercel.app') + '/api/initiate-stk-push', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
